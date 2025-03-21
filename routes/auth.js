@@ -90,4 +90,10 @@ router.post("/setPlan", auth, async (req, res) => {
 });
 
 
+// This route is for the cron-job.org setup. the render server goes to sleep so crone can make calls here to keep the server awake.
+router.get("/keepAlive", async(req,res) =>{
+  res.status(200).send('OK');
+});
+
+
 module.exports = router;
