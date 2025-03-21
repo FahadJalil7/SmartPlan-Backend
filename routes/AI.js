@@ -23,13 +23,14 @@ const DietPlanSchema = z.object({
 
 router.post("/chat", async (req, res) => {
   try {
-    const userGoal = req.body.message; // Example: "I want to gain muscle"
+    const messages = req.body.messages; // Example: "I want to gain muscle"
+    console.log(messages);
 
     const response = await openai.chat.completions.create({
       model: "gpt-4",
       messages: [
         { role: "system", content: "You are an AI dietitian that provides structured diet recommendations." },
-        { role: "user", content: userGoal }
+        ...messages
       ],
       tools: [
         {

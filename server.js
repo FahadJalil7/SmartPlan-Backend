@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "https://smart-plan-frontend-seven.vercel.app" }));
+app.use(cors({ origin: ["https://smart-plan-frontend-seven.vercel.app","http://localhost:5175"] }));
 app.use(express.json());
 
 // Routes
